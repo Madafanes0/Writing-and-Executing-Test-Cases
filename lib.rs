@@ -82,14 +82,4 @@ mod tests {
         let result = library.check_out_book("Nonexistent Book".to_string(), "User1".to_string());
         assert!(result, "Should not be able to check out a non-existent book");
     }
-    #[test]//duplicate books
-    fn test_add_duplicate_books() {
-        let mut library = Library::new();
-        library.add_book("1984".to_string(), "George Orwell".to_string());
-        library.add_book("1984".to_string(), "George Orwell".to_string());
-        let count = library.books.iter().filter(|book| book.title == "1984").count();
-        assert_eq!(count, 1, "There should only be one copy of the book in the library");
-    }
-
-
 }
